@@ -50,7 +50,7 @@ function renderHome() {
     const main = document.getElementById('main-content');
     let html = '';
     
-    posts.forEach(post => {
+    posts.forEach((post, index) => {
         html += `
         <article class="post-card" onclick="renderPost(${post.id})">
             <span class="category-badge">${post.cat}</span>
@@ -59,6 +59,22 @@ function renderHome() {
             <div style="margin-top:15px; font-size:14px; color:#888;">Posted on ${post.date} &middot; Read More &rarr;</div>
         </article>
         `;
+        if ((index + 1) % 5 === 0) {
+            html += `
+            <article class="post-card ad-card">
+                <h3 class="widget-title">Advertisement</h3>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-format="fluid"
+                     data-ad-layout-key="-fb-1s+6d+7g+85"
+                     data-ad-client="ca-pub-7587676721583907"
+                     data-ad-slot="2345678901"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </article>
+            `;
+        }
     });
     main.innerHTML = html;
     window.scrollTo(0,0);
@@ -81,6 +97,16 @@ function renderPost(id) {
                 <p>${post.content}</p>
                 <p>이 내용은 사용자들이 가장 많이 궁금해하는 핵심 정보를 바탕으로 작성되었습니다. 아래에서 단계별 해결 방법을 확인하세요.</p>
                 
+                <ins class="adsbygoogle"
+                     style="display:block; text-align:center;"
+                     data-ad-layout="in-article"
+                     data-ad-format="fluid"
+                     data-ad-client="ca-pub-7587676721583907"
+                     data-ad-slot="3456789012"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+
                 <h2>1. 문제의 원인과 분석</h2>
                 <p>대부분의 경우 설정의 미세한 차이나 소프트웨어적인 충돌로 인해 발생합니다. 전문가들은 기본적인 설정 점검을 가장 먼저 권장합니다.</p>
                 <ul>
@@ -92,6 +118,16 @@ function renderPost(id) {
                 <h2>2. 따라하기 쉬운 해결 가이드</h2>
                 <p>위의 원인을 해결하기 위해 다음 단계를 순서대로 진행해 보시기 바랍니다. 누구나 쉽게 따라 할 수 있도록 정리했습니다.</p>
                 
+                <ins class="adsbygoogle"
+                     style="display:block; text-align:center;"
+                     data-ad-layout="in-article"
+                     data-ad-format="fluid"
+                     data-ad-client="ca-pub-7587676721583907"
+                     data-ad-slot="4567890123"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+
                 <h2>결론</h2>
                 <p>오늘 소개한 팁을 적용하면 IT 기기 사용 환경이 훨씬 쾌적해질 것입니다. 작은 설정의 변화가 큰 생산성 향상을 가져옵니다.</p>
             </div>
